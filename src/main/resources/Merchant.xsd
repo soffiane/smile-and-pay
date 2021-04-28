@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://smileandpay.com/resources/merchant" xmlns:tns="http://smileandpay.com/resources/merchant"
+            elementFormDefault="qualified">
+
+    <!-- ADD OPERATION -->
+    <xsd:element name="AddMerchantRequestType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="merchant" type="tns:Merchant" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="AddMerchantResponseType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="responseMessage" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- DELETE OPERATION -->
+    <xsd:element name="DeleteMerchantRequestType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="idMerchant" type="xsd:int"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteMerchantResponseType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="responseMessage" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- UPDATE OPERATION -->
+    <xsd:element name="UpdateMerchantRequestType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="merchant" type="tns:Merchant"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateMerchantResponseType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="responseMessage" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- Merchant Type -->
+    <xsd:complexType name="Merchant">
+        <xsd:sequence>
+            <xsd:element name="idMerchant" type="xsd:int"/>
+            <xsd:element name="createDate" type="xsd:dateTime"/>
+            <xsd:element name="name" type="xsd:string"/>
+            <xsd:element name="lastName" type="xsd:string"/>
+            <xsd:element name="birthDate" type="xsd:date"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

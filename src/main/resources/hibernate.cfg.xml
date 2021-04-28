@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='utf-8'?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+  <!-- on peut ajouter plusieurs session factory pour configurer acces a d'autres
+      bases -->
+  <session-factory>
+    <!-- local connection properties -->
+    <property name="hibernate.connection.driver_class">org.hibernate..postgresql.Driver</property>
+    <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/postgres</property>
+    <property name="hibernate.connection.username">postgres</property>
+    <property name="hibernate.connection.password">postgres</property>
+    <property name="hibernate.connection.pool_size">10</property>
+
+    <property name="show_sql">true</property>
+    <property name="format_sql">true</property>
+    <property name="use_sql_comments">true</property>
+
+    <!-- dialect for PostGreSQL -->
+    <property name="dialect">org.hibernate.dialect.PostgreSQL95Dialect</property>
+
+    <property name="hibernate.show_sql">true</property>
+    <property name="cache.provider_class">org.hibernate.cache.NoCacheRegionFactoryAvailableException</property>
+    <property name="cache.use_query_cache">false</property>
+    <property name="hibernate.hbm2ddl.auto">create</property>
+
+    <!-- on ajoute dans la conf le mapping des classes : obligatoire -->
+    <mapping class="fr.smileandpay.shop.address.model.Address" />
+    <mapping class="fr.smileandpay.shop.merchant.model.Merchant" />
+    <mapping class="fr.smileandpay.shop.product.model.Product" />
+
+  </session-factory>
+</hibernate-configuration>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://smileandpay.com/resources/association" xmlns:tns="http://smileandpay.com/resources/association"
+            elementFormDefault="qualified"
+            xmlns:merchant="http://smileandpay.com/resources/merchant"
+            xmlns:product="http://smileandpay.com/resources/product">
+
+
+    <xsd:import namespace="http://smileandpay.com/resources/merchant"
+                schemaLocation="../resources/Merchant.xsd" />
+    <xsd:import namespace="http://smileandpay.com/entities/product"
+                schemaLocation="../resources/Product.xsd" />
+
+
+    <!-- ADD OPERATION -->
+    <xsd:element name="AddAssociationRequestType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="association" type="tns:Association" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="AddAssociationResponseType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="responseMessage" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- Association Type -->
+    <xsd:complexType name="Association">
+        <xsd:sequence>
+            <xsd:element name="merchant">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="merchant" type="merchant:Merchant"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="product">
+                <xsd:complexType>
+                    <xsd:sequence>
+                        <xsd:element name="product" type="product:Product"/>
+                    </xsd:sequence>
+                </xsd:complexType>
+            </xsd:element>
+            <xsd:element name="associationDate" type="xsd:dateTime"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>

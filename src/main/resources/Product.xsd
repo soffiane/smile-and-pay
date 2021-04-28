@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+            targetNamespace="http://smileandpay.com/resources/product" xmlns:tns="http://smileandpay.com/resources/product"
+            elementFormDefault="qualified">
+
+    <!-- ADD OPERATION -->
+    <xsd:element name="AddProductRequestType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="product" type="tns:Product" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <xsd:element name="AddProductResponseType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="responseMessage" type="xsd:string" />
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- DELETE OPERATION -->
+    <xsd:element name="DeleteProductRequestType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="productId" type="xsd:int"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="DeleteProductResponseType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="responseMessage" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- UPDATE OPERATION -->
+    <xsd:element name="UpdateProductRequestType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="product" type="tns:Product"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+    <xsd:element name="UpdateProductResponseType">
+        <xsd:complexType>
+            <xsd:sequence>
+                <xsd:element name="responseMessage" type="xsd:string"/>
+            </xsd:sequence>
+        </xsd:complexType>
+    </xsd:element>
+
+    <!-- Product Type -->
+    <xsd:complexType name="Product">
+        <xsd:sequence>
+            <xsd:element name="idProduct" type="xsd:int"/>
+            <xsd:element name="createDate" type="xsd:dateTime"/>
+            <xsd:element name="label" type="xsd:string"/>
+            <xsd:element name="unitPrice" type="xsd:double"/>
+            <xsd:element name="currency" type="xsd:string"/>
+            <xsd:element name="weight" type="xsd:double"/>
+            <xsd:element name="height" type="xsd:double"/>
+        </xsd:sequence>
+    </xsd:complexType>
+
+</xsd:schema>
